@@ -1,0 +1,36 @@
+.search {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: 'Roboto', serif;
+    opacity: 0;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
+    animation: 0.4s ease-in 0s scaler forwards;
+}
+
+.search > input {
+    border-radius: 5px;
+    width: 350px;
+    height: 2em;
+    min-width: 200px;
+    margin: 0.5em 1em;
+    border: 1px solid #6e716c2b;
+    padding: 0 0.5em;
+    font-size: 1.3em;
+    box-shadow: 0px 5px 13px 1px #00000040;
+}
+
+
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
