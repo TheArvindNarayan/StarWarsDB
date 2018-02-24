@@ -1,34 +1,36 @@
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
 .cards {
-    width: 220px;
-    background-color: white;
+    width: 265px;
+    background-color: black;
+    color: #e64a16;
     margin: 1em;
     border-radius: 5px;
-    box-shadow: 0px 5px 13px 1px #00000040;
+    box-shadow: 0px 5px 13px 1px #e64a168c;
     font-family: 'Roboto', serif;
-    transition: 0.2s;
-    transition-timing-function: ease-out;
-    animation: 0.4s ease-in 0s scaler;
     align-self: flex-start;
+    animation: 0.4s ease-out 0s scaler;
+    border: 1px solid #e64a16;
 }
 
 .cards:hover {
     transform: scale(1.1);
-    box-shadow: 0px 12px 13px 1px #00000040;
+    box-shadow: 0px 12px 13px 1px #e64a168c;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
 }
 
 .header {
     font-size: 1.3em;
     letter-spacing: 1px;
     padding: 0.4em 1em;
-    background-color: #6d9d33;
-    color: white;
+    background-color: #e64a16;
+    color: black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-family: 'Roboto Slab', serif;
@@ -60,28 +62,67 @@ ul.filmList {
     padding: 0 2em;
 }
 
-ul.filmList > li {
+ul.filmList>li {
     list-style: none;
 }
 
-fa-minus-circle, fa-plus-circle, a {
+fa-minus-circle,
+fa-plus-circle,
+a {
     cursor: pointer !important;
 }
 
 .next {
-    border-radius: 50%;
     font-size: 3.5em;
-    margin: 1em;
-    color: #6d9d33;
+    width: 265px;
+    margin: 0.4em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-bck {
+    cursor: progress;
+}
+
+.btn-bck>svg {
+    box-shadow: 3px 3px 20px 3px #e64a16b5 !important;
+    transform: translate(10px, 10px);
+}
+
+.next>svg {
+    color: #e64a16;
+    border-radius: 50%;
+    box-shadow: 10px 14px #e64a167d;
+    border: 5px solid #e64a16;
+    box-sizing: border-box;
+}
+
+.zoom-away {
+    transition: 0.2s;
+    transition-timing-function: ease-out;
+    animation: 0.4s ease-in 0s zoom forwards !important;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
 }
 
 @keyframes scaler {
     0% {
-      transform: scale(5);
-      opacity: 0;
+        transform: scale(5);
+        opacity: 0;
     }
     100% {
-      transform: scale(1);
-      opacity: 1;
+        transform: scale(1);
+        opacity: 1;
     }
-  }
+}

@@ -7,10 +7,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  
+
   results: any;
   next: any;
   prev: any;
+  toogleNext = false;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +20,7 @@ export class ResultsComponent implements OnInit {
       (data: any) => {
         this.results = data.results;
         this.next = data.next;
-        for(let z of this.results) {
+        for (let z of this.results) {
           z.FilmTitles = [];
           z.status = "empty";
         }
@@ -27,17 +28,17 @@ export class ResultsComponent implements OnInit {
     );
   }
 
-  getFilms(event) { 
-    if(event.status == 'empty') {
-      for(let x in event.films) {
+  getFilms(event) {
+    if (event.status == 'empty') {
+      for (let x in event.films) {
         this.http.get(event.films[x]).subscribe(
-          (data: any) => { 
-            for(let y in this.results) { 
-                if(this.results[y].name == event.name) {
-                  this.results[y].FilmTitles.push(data.title);
-                  this.results[y].status = "fetched";
-                }
+          (data: any) => {
+            for (let y in this.results) {
+              if (this.results[y].name == event.name) {
+                this.results[y].FilmTitles.push(data.title);
+                this.results[y].status = "fetched";
               }
+            }
           }
         );
       }
@@ -52,31 +53,35 @@ export class ResultsComponent implements OnInit {
   }
 
   getNext() {
+    this.toogleNext = true;
     this.http.get(this.next).subscribe(
       (data: any) => {
         this.results = data.results;
         this.next = data.next;
         this.prev = data.previous;
-        console.log(data);
-        for(let z of this.results) {
+        for (let z of this.results) {
           z.FilmTitles = [];
           z.status = "empty";
         }
+        this.toogleNext = false;
+        window.scrollTo(0, 0);
       }
     );
   }
 
   getPrev() {
-    console.log(this.next);
+    this.toogleNext = true;
     this.http.get(this.prev).subscribe(
       (data: any) => {
         this.results = data.results;
         this.next = data.next;
         this.prev = data.previous;
-        for(let z of this.results) {
+        for (let z of this.results) {
           z.FilmTitles = [];
           z.status = "empty";
         }
+        this.toogleNext = false;
+        window.scrollTo(0, 0);
       }
     );
   }

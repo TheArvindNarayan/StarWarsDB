@@ -1,6 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
 body {
-    background-color: rgba(241, 233, 233, 0.795) !important;
+    background: #000 url(http://sylvaingarnot.fr/media/stars.png) repeat top center !important;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-webkit-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-moz-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-ms-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
 }
 
 app-root {
@@ -10,7 +48,66 @@ app-root {
 app-results {
     max-width: 70%;
 }
+
 app-search {
     margin-left: auto;
     max-width: 30%;
+}
+
+@media only screen and (max-width: 500px) {
+    .next {
+        font-size: 2em;
+        width: 265px;
+    }
+    app-root {
+        flex-direction: column-reverse;
+    }
+    app-results {
+        max-width: 100%;
+    }
+    app-search {
+        margin: 0 auto !important;
+        max-width: 100%;
+    }
+    .search {
+        max-width: 80vw !important;
+    }
+    .search>input {
+        width: auto !important;
+    }
+    .cards {
+        width: 269px !important;
+    }
+    .content {
+        justify-content: space-around !important;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    app-search {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    color: #e64a16 !important;
+}
+
+.navbar {
+    border-color: #e64a166e;
+    border-bottom: 1px solid;
+    margin-bottom: 1em;
+    box-shadow: 0px 6px 4px 0px #e64a163d;
+}
+
+.navber-brand>img {
+    filter: grayscale(100%) brightness(34%) sepia(100%) hue-rotate(-50deg) saturate(430%) contrast(1.9);
+}
+
+.small {
+    font-size: 0.7em;
+    font-weight: 400;
+    opacity: 0.7;
 }

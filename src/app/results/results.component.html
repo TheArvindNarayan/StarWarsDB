@@ -1,52 +1,41 @@
 <div class="content col-md-12">
-  <div class="cards"
-  *ngFor="let x of results | searchResult:key">
+  <div class="next" [class.btn-bck]="toogleNext" *ngIf="prev" (click)="getPrev()">
+    <i class="fas fa-2x fa-arrow-circle-left"></i>
+  </div>
+  <div class="cards" [class.zoom-away]="toogleNext" *ngFor="let x of results | searchResult:key">
     <div class="header">
-      {{ x.name }}   
+      {{ x.name }}
     </div>
     <span class="data">
-        <i class="fas fa-birthday-cake"></i>
-        
-        <span class="dob">
-           -{{ x.birth_year }}
-        </span>
-        <span
-        class="gender"
-        [ngSwitch]="x.gender">
+      <i class="fas fa-birthday-cake"></i>
+
+      <span class="dob">
+        -{{ x.birth_year }}
+      </span>
+      <span class="gender" [ngSwitch]="x.gender">
         <i *ngSwitchCase="'male'" class="fas fa-mars"></i>
         <i *ngSwitchCase="'female'" class="fas fa-venus"></i>
         <i *ngSwitchCase="'n/a'" class="fas fa-venus-mars"></i>
       </span>
     </span>
     <span class="films">
-      <span><i class="fas fa-film"></i> Films</span>
-      <a 
-      *ngIf="x.status == 'empty' || x.status == 'hide' "
-      (click)="getFilms(x)">
-      <i class="fas fa-plus-circle"></i>
+      <span>
+        <i class="fas fa-film"></i> Films</span>
+      <a *ngIf="x.status == 'empty' || x.status == 'hide' " (click)="getFilms(x)">
+        <i class="fas fa-plus-circle"></i>
       </a>
-      <a 
-      *ngIf="x.status == 'fetched' "
-      (click)="hideFilms(x)">
-      <i class="fas fa-minus-circle"></i>
+      <a *ngIf="x.status == 'fetched' " (click)="hideFilms(x)">
+        <i class="fas fa-minus-circle"></i>
       </a>
     </span>
-    <ul class="filmList"
-    *ngIf="x.status == 'fetched' " >
-      <li 
-      *ngFor="let y of x.FilmTitles ">
+    <ul class="filmList" *ngIf="x.status == 'fetched' ">
+      <li *ngFor="let y of x.FilmTitles ">
         {{ y }}
       </li>
     </ul>
   </div>
-  <a 
-  *ngIf="prev"
-  (click)="getPrev()" class="next">
-      <i class="fas fa-2x fa-arrow-circle-left"></i>
-   </a>
-  <a 
-  *ngIf="next"
-   (click)="getNext()" class="next">
-      <i class="fas fa-2x fa-arrow-circle-right"></i>
-   </a>
+
+  <div class="next" [class.btn-bck]="toogleNext" *ngIf="next" (click)="getNext()">
+    <i class="fas fa-2x fa-arrow-circle-right"></i>
+  </div>
 </div>
