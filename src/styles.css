@@ -41,39 +41,13 @@ body {
     }
 }
 
-app-root {
-    display: flex;
-}
-
-app-results {
-    max-width: 70%;
-}
-
-app-search {
-    margin-left: auto;
-    max-width: 30%;
-}
-
 @media only screen and (max-width: 500px) {
     .next {
         font-size: 2em;
         width: 265px;
     }
-    app-root {
-        flex-direction: column-reverse;
-    }
-    app-results {
-        max-width: 100%;
-    }
-    app-search {
-        margin: 0 auto !important;
-        max-width: 100%;
-    }
     .search {
         max-width: 80vw !important;
-    }
-    .search>input {
-        width: auto !important;
     }
     .cards {
         width: 269px !important;
@@ -83,12 +57,6 @@ app-search {
     }
 }
 
-@media only screen and (max-width: 950px) {
-    app-search {
-        margin-left: 0;
-        max-width: 100%;
-    }
-}
 
 .navbar-brand {
     font-weight: bolder;

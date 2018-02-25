@@ -5,21 +5,65 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchResultPipe implements PipeTransform {
 
-  transform(results: any, key: string, field:string): any {
-    if(key === undefined) {
+  transform(results: any, name?: string, dob?: string, gender?: string, ): any {
+    if (!name && !dob && !gender) {
       return results;
     }
-    return results.filter(
-       (result) => { 
-         let elm = JSON.stringify(result.field).toLowerCase;
-          if(elm == key.toLowerCase) {
-            return true;
-          }
-          else {
-            return false;
-          }
-       }
-    );
-  }
 
+    if (name && !dob && !gender) {
+      return results.filter(
+        (result: any) => {
+          return result.name.toLowerCase().includes(name.toLowerCase());
+        }
+      );
+    }
+    if (!name && dob && !gender) {
+      return results.filter(
+        (result: any) => {
+          return result.birth_year.toLowerCase().includes(dob.toLowerCase());
+        }
+      );
+    }
+    if (!name && !dob && gender) {
+      return results.filter(
+        (result: any) => {
+          return result.gender.toLowerCase().includes(gender.toLowerCase());
+        }
+      );
+    }
+    if (name && dob && !gender) {
+      return results.filter(
+        (result: any) => {
+          return result.name.toLowerCase().includes(name.toLowerCase())
+           && result.birth_year.toLowerCase().includes(dob.toLowerCase());
+        }
+      );
+    }
+    if (name && !dob && gender) {
+      return results.filter(
+        (result: any) => {
+          return result.name.toLowerCase().includes(name.toLowerCase())
+           && result.gender.toLowerCase().includes(gender.toLowerCase());
+        }
+      );
+    }
+    if (!name && dob && gender) {
+      return results.filter(
+        (result: any) => {
+          return result.birth_year.toLowerCase().includes(dob.toLowerCase())
+           && result.gender.toLowerCase().includes(gender.toLowerCase());
+        }
+      );
+    }
+    if (name && dob && gender) {
+      return results.filter(
+        (result: any) => {
+          return result.name.toLowerCase().includes(name.toLowerCase())
+           && result.gender.toLowerCase().includes(gender.toLowerCase())
+           && result.birth_year.includes(dob.toUpperCase());
+        }
+      );
+    }
+
+  }
 }

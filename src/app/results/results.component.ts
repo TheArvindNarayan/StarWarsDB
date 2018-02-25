@@ -12,6 +12,8 @@ export class ResultsComponent implements OnInit {
   next: any;
   prev: any;
   toogleNext = false;
+
+  filter: Array<any> = [];
   name: any;
   dob: any;
   gender: any;
@@ -53,6 +55,19 @@ export class ResultsComponent implements OnInit {
 
   hideFilms(event) {
     event.status = "hide";
+  }
+
+  checkFilter(event: any) {
+    if (event == undefined) {
+      console.log("return");
+      return;
+    }
+    else if (event.srcElement.value && (this.filter.indexOf(event.srcElement.id)) == -1 ) {
+      this.filter.push(event.srcElement.id);
+    }
+    if (!(event.srcElement.value) ) {
+      this.filter.splice(this.filter.indexOf(event.srcElement.id),1);
+    }  
   }
 
   getNext() {
