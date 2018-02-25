@@ -54,7 +54,12 @@ body {
     }
     .content {
         justify-content: space-around !important;
+        margin: 0 auto;
     }
+    app-results {
+        flex-wrap: wrap !important;
+    }
+    
 }
 
 
@@ -92,11 +97,11 @@ body {
 }
 
 @keyframes zoomDS {
-    0% {
+    from {
         transform: scale(0);
         opacity: 0;
     }
-    100% {
+    to {
         transform: scale(1);
         opacity: 1;
     }

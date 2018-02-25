@@ -1,6 +1,7 @@
 {
-  "name": "coviam",
-  "version": "0.0.0",
+  "name": "starwars-db",
+  "version": "0.0.1",
+  "author": "arvind narayan",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     z-index: 3;
+    max-width: 70%;
 }
 
 .cards {
@@ -104,13 +105,25 @@ a {
 .zoom-away {
     transition: 0.2s;
     transition-timing-function: ease-out;
-    animation: 0.4s ease-in 0s zoom forwards !important;
+    animation: 1s ease-in 0s zoom forwards !important;
 }
 
 @keyframes zoom {
     0% {
         transform: scale(1);
         opacity: 1;
+    }
+    40% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    60% {
+        transform: scale(0.8);
+        opacity: 0.8;
     }
     100% {
         transform: scale(0);
@@ -133,11 +146,12 @@ a {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-content: flex-start;
     font-family: 'Roboto', serif;
     opacity: 0;
     animation: 0.4s ease-in 0s scaler forwards;
     flex-wrap: wrap;
+    max-width: 30%;
 }
 
 .search > input {
@@ -160,7 +174,7 @@ a {
 
 .search > input:focus {
   box-shadow: 7px 7px 20px 1px #e64a168c;
-  transform: scale(1.2);
+  transform: scale(1.075);
   outline: #e64a16;
   transition: 0.2s;
   transition-timing-function: ease-out;
