@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.css']
+  styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent implements OnInit {
 
@@ -12,6 +12,9 @@ export class ResultsComponent implements OnInit {
   next: any;
   prev: any;
   toogleNext = false;
+  name: any;
+  dob: any;
+  gender: any;
 
   constructor(private http: HttpClient) { }
 

@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ResultsComponent } from './results/results.component';
-import { SearchComponent } from './search/search.component';
 import { SearchResultPipe } from './search-result.pipe';
 
 
@@ -13,7 +12,6 @@ import { SearchResultPipe } from './search-result.pipe';
   declarations: [
     AppComponent,
     ResultsComponent,
-    SearchComponent,
     SearchResultPipe
   ],
   imports: [
